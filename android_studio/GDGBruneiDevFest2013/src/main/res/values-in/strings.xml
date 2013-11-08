@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GDGBruneiDevFest2013</string>
+    <string name="action_settings">Tetapan</string>
+    <string name="hello_world">Apa khabar</string>
+    <string name="change_name">Tukar Nama!</string>
+    <string name="download_names">Muat Turun Nama</string>
+    <string name="download_names_bad">Muat Turun Nama (Tak Bagus)</string>
+    <string name="download_names_error">Tak boleh muat turun nama</string>
+    <string name="delete_names">Buang nama</string>
+    <string name="delete">Buang</string>
+    <string name="share">Kongsi</string>
+    <string name="name_added">Nama ditambah</string>
+    <string name="name_added_error">Tak boleh tambah nama</string>
+    <string name="names_deleted">Nama-nama dibuang</string>
+    <string name="names_deleted_error">Tak boleh buang nama-nama</string>
+    <string name="name_deleted">Nama dibuang</string>
+    <string name="name_deleted_error">Tak boleh buang nama</string>
+
+</resources>

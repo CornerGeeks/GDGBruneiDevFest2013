@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Considering Android Development: A bit of basics then some</title>
+
+        <meta name="description" content="Slide deck for GDG Brunei - DevFest 2013 (Nov 2013)">
+        <meta name="author" content="Timothy Lim Sheng Hwee">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <style>
+            .reveal li > ol , .reveal li > ul{
+                margin-left: 2em;
+            }
+
+            table.border th{
+                text-align:center;
+                text-decoration: underline;
+            }
+            table.border, table.border th, table.border td {
+                border: 1px solid white;
+                border-collapse: collapse;
+                padding: 5px 10px;
+            }
+
+            .small, .small td, .small th {
+                font-size: 0.6em;
+            }
+            .center{
+                text-align: center;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+                <section>
+                    <h1>Considering Android Development</h1>
+                    <h3>A bit of basics then some</h3>
+                    <p>
+                        <small>
+                                <a href="http://thewheatfield.org">Timothy Lim</a> 
+                                / <a href="http://twitter.com/thewheat">@thewheat</a>
+                                <br>
+                                <a href="https://github.com/CornerGeeks/GDGBruneiDevFest2013/">https://github.com/CornerGeeks/GDGBruneiDevFest2013</a>
+                        </small>
+                    </p>
+                </section>
+                <section>
+                    <h2>Introduction & Pre-requisites</h2>
+                    <ul>
+                        <li>Things I wished I knew when I started</li>
+                        <li>Hope you have some Java knowledge</li>
+                        <li>Quite a bit of material to give you a quick start</li>
+                        <li class="fragment">If you have a question, just ask</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>What do I need?</h2>
+                    <ul>
+                        <li>Java & <a href="http://developer.android.com/sdk/index.html">Android SDK</a></li>
+                        <li>IDE
+                            <ul>
+                                <li><a href="http://developer.android.com/sdk/index.html">ADT with Eclipse</a></li>
+                                <li><a href="http://developer.android.com/sdk/installing/studio.html">Android Studio</a></li>
+                            </ul>
+                        </li>
+                        <li>No IDE
+                            <ul>
+                                <li><a href="http://ant.apache.org/">ant</a></li>
+                            </ul>
+                        </li>
+                        <li class="fragment"><span>Android Studio is the future and the UI seems more responsive, but Eclipse is faster at compilation (<em>for now</em>)</span>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Starting a new Project</h2>
+                    <p>
+                        <img src="img/01. New Android Project.png" alt="">
+                    </p>
+                </section>
+                <section>
+                    <h2>Starting a new Project</h2>
+                    <p>
+                        <img src="img/02. Android Project Name.png" alt="">
+                    </p>
+                </section>
+                <section>
+                    <h2>Starting a new Project</h2>
+                    <p>
+                        <img src="img/03. Android Project Other Details.png" alt="">
+                    </p>
+                </section>
+                <section>
+                    <h2>Starting a new Project</h2>
+                    <p>
+                        <img src="img/04. Android Project Icon.png" alt="">
+                    </p>
+                </section>
+                <section>
+                    <h2>Starting a new Project</h2>
+                    <p>
+                        <img src="img/05. Android Project Activity Creation.png" alt="">
+                    </p>
+                </section>
+                <section>
+                    <h2>Starting a new Project</h2>
+                    <p>
+                        <img src="img/06. Android Project Activity Details.png" alt="">
+                    </p>
+                </section>
+                <section>
+                    <h2>Layout of a project Directory</h2>
+                    <p>
+                        <p>
+                            <img src="img/07. Android Project File Listing src lib annotated.png" alt="">
+                        </p>
+                        <ul>
+                            <li>src directory: all your code belongs to this folder (or libraries distributed as source)</li>
+                            <li>libs directory: using libraries that you download online as a .jar</li>
+                            <li>AndroidManifest.xml: configuration settings on the app itself.</li>
+                        </ul>
+                    </p>
+                </section>
+                <section>
+                    <h2>Layout of a project Directory</h2>
+                    <p>
+                        <p>
+                            <img src="img/07. Android Project File Listing res.png" alt="">
+                        </p>
+                        <ul>
+                            <li>res directory: resources for images, menus, strings</li>
+                        </ul>
+                    </p>
+                </section>
+                <section>
+                    <h2>Activity</h2>
+                    <blockquote>
+                    "An Activity is an application component that provides a screen with which users can interact in order to do something"</blockquote>
+                    <p>
+                        <ul>
+                            <li class="fragment">E.g. Newspaper downloader.
+                                <ul>
+                                    <li>Activity 1: List of all downloaded editions</li>
+                                    <li>Activity 2: Paged view of all pages for that edition</li>
+                                </ul>
+                            </li>
+                            <li class="fragment">Think of different activities like different programs that can accept differet  inputs 
+                                <ul>
+                                    <li>ping android.com</li>
+                                    <li>ipconfig</li>
+                                    <li>ipconfig /flushdns</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
+                </section>
+                <section>
+                    <h2>AndroidManifest.xml</h2>
+                    <p>
+                        Define your activities in the manifest
+                    <p>
+
+                    <pre><code data-trim contenteditable>
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.thewheatfield.gdgbruneidevfest2013"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="org.thewheatfield.gdgbruneidevfest2013.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+                    </code></pre>
+                    <p>
+                        This one application currently has one activity
+                    <p>
+                </section>
+                <section>
+                    <h2>Activity - Life cycle</h2>
+                    <img src="img/basic-lifecycle.png">
+                    <a href="http://developer.android.com/training/basics/activity-lifecycle/starting.html">Android Training Docs</a> / <a href="http://developer.android.com/reference/android/app/Activity.html">Java Docs</a>
+                </section>
+                <section>
+                    <h2>Activity - Life cycle</h2>
+                    <p>
+<pre><code>public class MainActivity extends Activity {    
+    @Override // onCreate call everytime the app is started or even rotated
+    protected void onCreate(Bundle savedInstanceState) {
+        // savedInstanceState used to load data from previously saved state
+        super.onCreate(savedInstanceState);     
+        //if (savedInstanceState != null)
+        //    mDate = savedInstanceState.getString(STATE_DATE);
+
+        // load a layout view based on name in directory
+        setContentView(R.layout.activity_main); 
+    }
+    @Override // save state!
+    public void onSaveInstanceState(Bundle outState) {
+        // outState.putString(STATE_DATE, mDate);
+    }
+}</code></pre>
+                    </p>
+                    <img src="img/Android layout main_activity.xml.png">
+                </section>
+                <section>
+                    <h2>View Layouts</h2>
+                    <p>
+<p>res/layout/activity_main.xml
+<pre><code>&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" 
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" &gt;
+
+    &lt;TextView
+        android:id="@+id/lblName"
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" /&gt;
+
+&lt;/RelativeLayout&gt;</code></pre>
+
+<p>Text loaded from res/values/strings.xml
+<pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;resources&gt;
+    &lt;string name="app_name"&gt;GDGBruneiDevFest2013&lt;/string&gt;
+    &lt;string name="action_settings"&gt;Settings&lt;/string&gt;
+    &lt;string name="hello_world"&gt;Hello world!&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+                    </p>
+                </section>
+                <section>
+                    <h2>Default App Output</h2>
+                    <p>
+                        <img src="img/app default view zoomed.png">
+                    </p>
+                </section>
+                <section>
+                    <h2>User Interaction</h2>
+                    <p>
+                        Add a TextView and Button to the view
+                        
+<pre><code>&lt;EditText
+   android:id="@+id/iptName" 
+   android:layout_width="fill_parent" 
+   android:layout_height="wrap_content"
+   android:layout_alignParentLeft="true"
+   android:layout_toLeftOf="@+id/btnChangeName"&gt;
+&lt;/EditText&gt;
+
+&lt;Button
+   android:id="@+id/btnChangeName"
+   android:layout_width="wrap_content" android:layout_height="wrap_content"
+   android:layout_alignBaseline="@+id/iptName" 
+   android:layout_alignBottom="@+id/iptName"
+   android:layout_alignParentRight="true"
+   android:text="@string/change_name" /&gt;
+                        </code></pre>
+
+                    </p>
+                </section>
+                <section>
+                    <h2>User Interaction</h2>
+                    <p>
+                        <img src="img/app view - add user input2.png">
+                    </p>
+                </section>
+                <section>
+                    <h2>Add a clickHandler & Update the screen</h2>
+                    <p>
+<pre><code>TextView lblName = (TextView) findViewById(R.id.lblName);
+TextView iptName = (TextView) findViewById(R.id.iptName);
+Button btnChangeName = (Button) findViewById(R.id.btnChangeName);
+if(btnChangeName != null){
+    btnChangeName.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(lblName != null && iptName != null){
+                lblName.setText(getString(R.string.hello_world) 
+                    + " " + iptName.getText());
+            }
+            else{
+                lblName.setText("-");
+            }                   
+        }
+    });
+}
+</code></pre>                       
+                    </p>
+                </section>
+                <section>
+                    <img src="img/app view - add user input - event handler.png">
+                </section>
+                <section>
+                    <h2>Saving Data</h2>
+                    <p>Simple key-pair values. Saved on device</p>
+<pre><code>private static final String ID 
+    = "org.thewheatfield.gdgbruneidevfest2013.saveddata";
+private static final String data_names = "names";
+
+SharedPreferences data = c.getSharedPreferences( LocalData.ID
+    , Context.MODE_PRIVATE);
+// saving data
+SharedPreferences.Editor editor = data.edit();
+editor.putString(data_names, dataToSave);
+editor.commit();     
+// reading data. if not found set to empty string
+String allnames = data.getString(data_names, ""); 
+</code></pre>                    
+<a href="http://developer.android.com/training/basics/data-storage/index.html">Saving Data (Android Training docs)</a>
+                </section>
+                <section>
+                    <h2>Lists & Adapters</h2>
+                    <p>
+<blockquote>The Adapter retreives the data (from a source such as an array or a database query) and converts each entry into a view that can be added into the AdapterView layout</blockquote>                        
+                        <div class="fragment">
+                            <p>AdapterView subclasses are used when layout is dynamic or not pre-determined. e.g. lists</p>
+                            <p>
+                            <a href="http://developer.android.com/guide/topics/ui/declaring-layout.html#AdapterViews">Building Layouts with an Adapter (Android API Guide)</a>
+                        </p>
+                        </div>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Lists & Adapters</h2>
+                    <p>
+                        View
+<pre><code>&lt;ListView
+   android:id="@+id/listNames"
+   android:layout_width="match_parent"
+   android:layout_height="fill_parent"
+   android:layout_alignParentBottom="true"
+   android:layout_alignParentLeft="true"
+   android:layout_alignParentRight="true"
+   android:layout_below="@+id/btnDeleteNames" &gt;
+&lt;/ListView&gt;</code></pre>
+
+Code
+<pre><code>    String[] names;
+    ...
+    this.names = this.data.readNames();
+    ...
+
+    ListView listNames = (ListView) findViewById(R.id.listNames);
+    // use standard simple list layout from core android
+    ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(this, 
+    android.R.layout.simple_list_item_1, names);
+    listNames.setAdapter(adapter);
+</code></pre>
+
+                    </p>
+                </section>
+                <section>
+                    <h2>Lists & Adapters</h2>
+                    <img src="img/list.png">
+                </section>
+                <section>
+                    <h2>Context Menu</h2>
+                    <p>Long press on items</p>
+                        <pre><code>registerForContextMenu(listNames);
+</code></pre>
+<pre><code>@Override
+public void onCreateContextMenu(ContextMenu menu, View v,
+                                ContextMenuInfo menuInfo) {
+    super.onCreateContextMenu(menu, v, menuInfo);
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.context_menu, menu);
+}</code></pre>
+<pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;menu xmlns:android="http://schemas.android.com/apk/res/android" &gt;
+    &lt;item android:id="@+id/deleteName" android:title="@string/delete" 
+        android:titleCondensed="@string/delete"&gt;&lt;/item&gt;
+&lt;/menu&gt;
+</code></pre>
+                </section>
+                <section>
+                    <h2>Context Menu</h2>
+<pre><code>@Override
+public boolean onContextItemSelected(MenuItem item) {
+    AdapterContextMenuInfo info=(AdapterContextMenuInfo)item.getMenuInfo();
+    switch (item.getItemId()) {
+        case R.id.deleteName:
+            handleDeleteName(info.position); return true;
+        default:
+            return super.onContextItemSelected(item);
+    }
+}
+</code></pre>
+                    <p><img src="img/Delete Context Menu.png"></p>
+                </section>
+                <section>
+                    <h2>Sharing with Intents</h2>
+                    <p>
+                        Share Text
+                        <pre><code>Intent shareIntent = new Intent();
+shareIntent.setAction(Intent.ACTION_SEND);
+shareIntent.putExtra(Intent.EXTRA_TEXT, name);
+shareIntent.setType("text/plain");
+startActivity(Intent.createChooser(shareIntent, 
+    getResources().getText(R.string.share)));      </code></pre>
+                    </p>
+                    <p>
+                        Share Photos
+                        <pre><code>Intent shareIntent = new Intent();
+shareIntent.setAction(Intent.ACTION_SEND);
+shareIntent.putExtra(Intent.EXTRA_STREAM, 
+    Uri.parse("file://" + imageToShare.getAbsolutePath())); // saved on disk
+shareIntent.setType("image/jpeg");
+startActivity(Intent.createChooser(shareIntent, 
+    getResources().getText(R.string.action_share)));</code></pre>
+                    </p>
+                    <p><a href="http://developer.android.com/guide/components/intents-filters.html">Intents and Intent Filters (API Guide)</a> / <a href="http://www.vogella.com/articles/AndroidIntent/article.html">Android Intents - Tutorial (vogella.com)</a></p>
+                </section>
+
+                <section>
+                    <h2>Network Connectivity</h2>
+                    <ul>
+                        <li>Must be done in the background / asynchronously</li>
+                        <li><a href="http://developer.android.com/training/articles/perf-anr.html">There should be no long running processes in the main UI thread</a>
+                            <p class="center"><img src="img/anr.png"></p>
+                        </li>
+                    </ul>
+                    <ul class="fragment">
+                        <li>Extend <a href="http://developer.android.com/reference/android/os/AsyncTask.html">AsyncTask</a> class or use a library like <a href="http://loopj.com/android-async-http/">AsyncHttpClient</a></li>
+                        <li>Don't forget to add permission to AndroidManifest.xml
+                            <pre><code> &lt;uses-permission android:name="android.permission.INTERNET"/&gt;</code></pre>
+                        </li>
+                        <li>For testing in the emulator. Your host computer IP is 10.0.2.2<BR>(<a href="https://code.google.com/p/mongoose/">mongoose</a>/ <a href="http://www.rejetto.com/hfs/">HFS</a> / other web server of choice)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Network Connectivity</h2>
+<pre><code>(new DownloadNamesTask).execute(url); 
+...
+private class DownloadNamesTask extends AsyncTask {
+    @Override
+    protected String doInBackground(String... urls) {
+        try {
+            return downloadUrl(urls[0]);
+        } catch (IOException e) { return null; }
+    }
+
+    @Override
+    protected void onPostExecute(String resultFromDoInBG) {
+        processResponse(resultFromDoInBG); updateUI();        
+    }
+}
+</code></pre>
+vs
+<pre><code>AsyncHttpClient client = new AsyncHttpClient();
+client.get(URL, new AsyncHttpResponseHandler() {
+    @Override
+    public void onSuccess(String response) {
+        processResponse(response); updateUI();
+    }
+});     
+</code></pre>
+                </section>
+                <section>
+                    <h2>Internationalization</h2>
+                    <p>                        
+                        <ul>
+                            <li>Add another strings.xml in values-CountryCode folder</li>
+                            <li>e.g. <ul>
+                                <li>values-in : Indonesia</li>
+                                    <li>values-bm : Bahasa Melayu (I think)</li>
+                                </ul></li>
+                            <li><a href="http://developer.android.com/training/basics/supporting-devices/languages.html">Supporting Different Languages (Android Training Docs)</a></li>
+                        </ul>
+                    </p>
+                </section>
+                <section>
+                    <h2>Supporting Different Screen Densities</h2>
+                    <p>
+                        <blockquote>A dp is a density-independent pixel (that corresponds to the physical size of a pixel at 160 dpi)</blockquote>
+                        <br>
+                        <blockquote>An sp is the same base unit, but is scaled by the user's preferred text size (it’s a scale-independent pixel)</blockquote>
+                        <div class="fragment">
+                        <ul>
+                            <li>sp: Text</li>
+                            <li>dp: Padding & Element Widths & Heights</li>
+                            <li>px: Don't use!</li>
+                        </ul>
+                        <a href="http://developer.android.com/training/multiscreen/screendensities.html#TaskUseDP">Use Density-independent Pixels (Android Training Docs)</a>
+                    </div>
+                    </p>
+                </section>
+                <section>
+                    <h2>Supporting Different Screen Densities</h2>
+                    <p>
+                        <p>Different resources based on device configurations</p>
+                        <pre><code>res/layout/layout.xml             // layout for normal screen size ("default")
+res/layout-small/layout.xml       // layout for small screen size
+res/layout-xlarge/layout.xml      // layout for extra large screen size
+res/layout-xlarge-land/layout.xml // layout for extra large
+                                  //   in landscape orientation
+
+res/drawable-mdpi/icon.png        // bitmap for medium density
+res/drawable-hdpi/icon.png        // bitmap for high density
+res/drawable-xhdpi/icon.png       // bitmap for extra high density</code></pre>
+                        <p class="center"><img style='background-color: #ffffff' src="img/screens-ranges.png"></p>
+                        Can target many configurations from language to night/day to platform version (<a href="
+                        http://developer.android.com/guide/topics/resources/providing-resources.html#table2">full details & heirarchy order</a>)
+                    </p>
+                </section>
+                <section>
+                    <h2>Using Libraries</h2>
+                    <ul>
+                        <li>Installation / Usage
+                            <ul>
+                                <li>Copy to libs folder & import in necessary .java file<br>or</li>
+                                <li>Copy source files to src folder</li>
+                            </ul>
+                        </li>
+                        <li class="fragment">Useful libraries
+                            <ul>
+                                <li><a href="https://github.com/chrisbanes/PhotoView">PhotoView</a>: multi-touch zoom images</li>
+                                <li><a href="https://github.com/nostra13/Android-Universal-Image-Loader">Android Universal Image Loader</a>: asynchronously/lazy load images</li>
+                                <li><a href="http://actionbarsherlock.com/">Action Bar Sherlock</a>: support action bar on platforms that dont have it</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>To support old android or new Android</h2>
+                    <img src="img/android_platform_pie_chart_2013_11_01.png" style='background-color: #ffffff'>
+                    <p>
+                        
+                        <a href="http://developer.android.com/about/dashboards/index.html">Source</a>
+                        <blockquote>Data collected during a 7-day period ending on November 1, 2013. Any versions with less than 0.1% distribution are not shown.</blockquote>
+                    </p>
+                </section>
+                <section>
+                    <h2>To support old android or new Android</h2>
+                    <p class="">
+    <table class='border small center' style='margin: 0 auto'><tbody>
+    <tr><th>Version</th><th>Codename</th><th>API</th><th>Distribution</th></tr>
+    <tr><td>2.2</a></td><td rowspan="1">Froyo</td><td>8</td><td>1.7%</td></tr>
+    <tr><td>2.3.3 - 2.3.7</a></td><td rowspan="1">Gingerbread</td><td>10</td><td>26.3%</td></tr>
+    <tr><td>3.2</a></td><td rowspan="1">Honeycomb</td><td>13</td><td>0.1%</td></tr>
+    <tr><td>4.0.3 - 4.0.4</a></td><td rowspan="1">Ice Cream Sandwich</td><td>15</td><td>19.8%</td></tr>
+    <tr><td>4.1.x</a></td><td rowspan="3">Jelly Bean</td><td>16</td><td>37.3%</td></tr>
+    <tr><td>4.2.x</a></td><td>17</td><td>12.5%</td></tr>
+    <tr><td>4.3</a></td><td>18</td><td>2.3%</td></tr></tbody></table>
+                        <p>Support libraries (ViewPager / ActionBarSherlock) can help but add to app size. Older devices may not have much memory</p>
+                    </p>
+                </section>
+                <section>
+                    <h2>Problems!!</h2>
+                    <ul>
+                        <li>Emulator is slow
+                            <ul>
+                                <li>Get real hardware</li>
+                                <li>Use the Atom / x86 Android image & <a href="http://software.intel.com/en-us/articles/intel-hardware-accelerated-execution-manager">HAXM</a></li>
+                            </ul>
+                        </li>
+                        <li class="fragment">ADT/Eclipse Quirks:
+                            <ul>
+                                <li class="fragment">My app can't compile / Weird errors
+                                    <ul>
+                                        <li>Clean and rebuild the project (Project > Clean)</li>
+                                    </ul>
+                                </li>
+                                <li class="fragment">Updated code not show in app:
+                                    <ul>
+                                        <li>Happens if you're updaing a resource (e.g. xml) file and not a code/.java file</li>
+                                        <li>Open .java file, make some changes (add comment) and rebuild</li>
+                                    </ul>
+                                </li>
+                                <li class="fragment">Slow Computer when Saving files: Disable Linting
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="fragment">Android Studio takes a long time to compile
+                            <ul>
+                                <li>Use Eclipse</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Now to the "and them some" part</h2>
+                    <p>
+                        <ul>
+                            <li>For those with little or no Java knowledge</li>
+                            <li class="fragment">There are solutions
+                                <ul>
+                                    <li>C# and .NET: <a href="http://xamarin.com/android">Xamarin</a></li>
+                                    <li>Python: <a href="http://modrana.org/trac/wiki/PySideForAndroid">PySide</a></li>
+                                    <li>HTML5, CSS and JavaScript:
+                                        <ul>
+                                            <li><a href="http://phonegap.com">PhoneGap</a></li>
+                                            <li><a href="http://www.icenium.com/">Icenium</a></li>
+                                            <li><a href="http://www.appcelerator.com/titanium/">Titanium</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                    </p>
+                </section>
+                <section>
+                    <h2>PhoneGap</h2>
+                    <ul>
+                        <li>Needs <a href="http://nodejs.org/">NodeJS</a>, Java, ant (for OSX, install <a href="http://brew.sh/">HomeBrew</a> then "brew install ant" in Terminal)</li>
+                        <li><a href="http://phonegap.com/install/">Usage</a>*:
+<pre><code>sudo npm install -g phonegap
+phonegap create my-app
+cd my-app
+phonegap run android</code></pre>
+                            <p>*Missing instructions: Download latest version of <a href="https://github.com/phonegap/phonegap-app-hello-world">Hello World</a> and move www to the www folder created in your project (there are still some other issues that need to be worked on. Couldn't seem to whitelist URL for ajax call)
+                            </p>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>View - index.html</h2>
+                    <p>
+<pre><code>&lt;div class="app"&gt;
+    &lt;div id="appMain"&gt;
+        &lt;div class="double section"&gt;
+            &lt;input id="iptName" type="text"&gt;&lt;button id="btnChangeName"&gt;Change Names&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="single section"&gt;
+            &lt;span id="lblName"&gt;Hello&lt;/span&gt;
+            &lt;button id="btnDeleteNames"&gt;Delete Names&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;ul id="listNames" class="section no-list-items"&gt;
+        &lt;/ul&gt;
+        &lt;div style="display:none"&gt;
+            &lt;ul id="contextMenu" class="no-list-items"&gt;
+                &lt;li&gt;&lt;a href="#" id="menuDelete"&gt;Delete&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" id="menuShare"&gt;Share&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;a class='inline' href="#contextMenu" style="display:noen"&gt;Show Context Menu&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></code>                        
+                    </p>
+                </section>
+                <section>
+                    <h2>View - index.html</h2>
+                    <p>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+                    </p>
+                    <p>Use CSS
+        <pre><code>&lt;link rel="stylesheet" type="text/css" href="css/index.css" /&gt;
+&lt;link rel="stylesheet" type="text/css" href="css/custom.css" /&gt;
+&lt;link rel="stylesheet" type="text/css" href="lib/colorbox/colorbox.css" /&gt;</code></pre>
+                    </p>
+                    <p>Use Javascript
+                        <pre><code>&lt;script type="text/javascript" src="phonegap.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="lib/jquery-2.0.3.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="lib/colorbox/jquery.colorbox-min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/index.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+    app.initialize();
+&lt;/script&gt;</code></pre>
+                    </p>
+                </section>
+                <section>
+                    <h2>Code</h2>
+                    <p>
+<pre><code>var app = { // Application Constructor
+    initialize: function() {
+        this.bindEvents(); this.db.init();
+        this.ui.lblName = $("#lblName"); this.ui.iptName = $("#iptName");
+        this.ui.listNames = $("#listNames");
+        this.ui.changeName = $("#btnChangeName");
+        this.ui.changeName.click(function(e){
+            e.preventDefault();
+            if(app.ui.changeName){
+                var name = app.ui.iptName.val();
+                app.ui.fx.changeName(name);
+                if(app.db.addName(name))
+                    app.loadNames();
+            }
+        });
+    }
+};
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>PhoneGap on Desktop</h2>
+                    <img src="img/phonegap on desktop.png">
+                    <img src="img/chrome emulate touch.png">
+                </section>
+
+                <section>
+                    <h2>Conclusion</h2>
+                    <p>Native is typically slower to develop and only works for Android</p>
+                    <p>PhoneGap enables cross platform development using web development technologies</p>
+                </section>
+
+                <section>
+                    <h1>THE END</h1>
+
+                        <small>
+                                <a href="http://thewheatfield.org">Timothy Lim</a> 
+                                / <a href="http://twitter.com/thewheat">@thewheat</a>
+                                <br>
+                                <a href="https://github.com/CornerGeeks/GDGBruneiDevFest2013/">https://github.com/CornerGeeks/GDGBruneiDevFest2013</a>
+                        </small>
+<br><br>
+                    <small>Presentation done by <a href="http://lab.hakim.se/reveal-js/">reveal.js</a> by <a href="http://hakim.se">Hakim El Hattab</a></small>
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>

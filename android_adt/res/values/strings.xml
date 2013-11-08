@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GDGBruneiDevFest2013</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello</string>
+    <string name="change_name">Change my name!</string>
+    <string name="download_names">Download Names</string>
+    <string name="download_names_bad">Download Names (Bad)</string>    
+    <string name="download_names_error">Error downloading names</string>
+    <string name="delete_names">Clear names</string>
+    <string name="delete">Delete</string>
+    <string name="share">Share</string>
+    <string name="name_added">Name added</string>
+    <string name="name_added_error">Error adding name</string>
+    <string name="names_deleted">Names deleted</string>
+    <string name="names_deleted_error">Error deleting names</string>
+    <string name="name_deleted">Name deleted</string>
+    <string name="name_deleted_error">Error deleting name</string>
+    <string name="load_custom_list_layout">Load Custom List Item Layout</string>
+    
+</resources>

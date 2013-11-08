@@ -1,0 +1,80 @@
+
+#header {
+	height: 1.4em;
+}
+	#header #appTitle{
+		float: left;
+		height: 1.4em;
+		overflow: hidden;
+	}
+	#header #nav {
+		float: right;
+		height: 1.4em;
+			overflow: hidden;
+	}
+		#header #nav ul {
+			margin: 0;
+			float: right;
+		}
+			#header #nav ul li{
+				display: inline;
+				height: 1.4em;
+				overflow: hidden;
+			}
+
+#appMain{
+	clear: both;
+	padding: 0.5em;
+}
+	#appMain .section{
+		padding: 0.2em;
+	}
+	#appMain .single.section{
+		height: 1.5em;
+		overflow: hidden;
+		clear: both;
+	}
+	#appMain .double.section{
+		height: 3em;
+		overflow: hidden;
+		clear: both;
+	}
+	#appMain #iptName {
+		float: left;
+		width: 55%;
+	}
+	#appMain #btnChangeName {
+		float: right;
+		width: 40%;
+	}
+	#appMain #btnDeleteNames {
+		float: right;
+	}
+
+	#appMain #listNames {
+		clear: both;
+	}
+		#appMain #listNames {
+
+		}
+		#appMain #listNames li {
+		}
+
+	#appMain #contextMenu{
+		padding: 0 1em;
+	}
+
+
+ul.no-list-items{
+	padding-left: 0px;
+}			
+
+	ul.no-list-items li{
+		list-style-type: none;
+		padding: 0.1em;
+		border-bottom: 1px solid #eee;
+	}
+	
+	ul.no-list-items li:active {
+		background-color: #ccc;
+	}

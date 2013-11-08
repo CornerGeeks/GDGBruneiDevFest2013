@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/custom.css" />
+        <link rel="stylesheet" type="text/css" href="lib/colorbox/colorbox.css" />
+        <title>GDG Brunei DevFest 2013</title>
+    </head>
+    <body>
+        <div class="app">
+            <div id="header">
+            <h1 id="appTitle">GDG Brunei DevFest 2013</h1>
+            <nav id="nav">
+                <ul class="no-list-items">
+                    <li><a id="menuDownload" href="#">Download Names</a></li>
+                </ul>
+            </nav>
+            </div>
+            <div id="appMain">
+                <div class="double section">
+                    <input id="iptName" type="text"><button id="btnChangeName">Change Names</button>
+                </div>
+                <div class="single section">
+                    <span id="lblName">Hello</span>
+                    <button id="btnDeleteNames">Delete Names</button>
+                </div>
+                <ul id="listNames" class="section no-list-items">
+                </ul>
+                <div style="display:none">
+                    <ul id="contextMenu" class="no-list-items">
+                        <li><a href="#" id="menuDelete">Delete</a></li>
+                    </ul>
+                    <a class='inline' href="#contextMenu" style="display:noen">Show Context Menu</a>
+                </div>
+            </div>
+            <div>
+                Download Names doesn't work. Need to whitelist?<BR>
+                PhoneGap install is messed up, need to find out what is wrong
+            </div>
+        </div>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="lib/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="lib/colorbox/jquery.colorbox-min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
